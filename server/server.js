@@ -14,7 +14,7 @@ const app = express();
 
 app.db = db;
 
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/books", booksRouter);
