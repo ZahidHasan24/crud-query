@@ -1,13 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import preset from "@rebass/preset";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={preset}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
