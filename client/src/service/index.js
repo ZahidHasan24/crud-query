@@ -5,3 +5,13 @@ export const getAllBooks = async () => {
   }
   return res.json();
 };
+
+export const removeBook = async (id) => {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/books/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) {
+    throw new Error(res.json().message);
+  }
+  return true;
+};
