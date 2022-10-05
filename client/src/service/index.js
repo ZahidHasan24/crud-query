@@ -15,3 +15,30 @@ export const removeBook = async (id) => {
   }
   return true;
 };
+
+export const getBook = async ({ queryKey }) => {
+  const [_key, { id }] = queryKey;
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/books/${id}`);
+
+  if (!res.ok) {
+    throw new Error(res.json().message);
+  }
+
+  return res.json();
+};
+
+export const updateBook = async ({ id, ...data }) => {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/books/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    throw new Error(res.json().message);
+  }
+
+  return res.json();
+};

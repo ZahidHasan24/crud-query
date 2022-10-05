@@ -2,8 +2,8 @@
   "books": [
     {
       "id": "8MDNdjDz",
-      "title": "Introduction to Algorithms",
-      "author": "Thomas H. Cormen"
+      "title": "Atomic Kotlin",
+      "author": "Bruce Eckel"
     }
   ]
 }
