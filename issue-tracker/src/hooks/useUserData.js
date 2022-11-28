@@ -6,6 +6,7 @@ export default function useUserData(userId) {
     () => fetch(`/api/users/${userId}`).then((res) => res.json()),
     {
       enabled: !!userId,
+      refetchOnWindowFocus: false
     }
   );
 
