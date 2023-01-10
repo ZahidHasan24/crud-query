@@ -3,7 +3,6 @@ import { useQuery } from "react-query";
 import { IssueItem } from "./IssueItem";
 
 export default function IssuesList({ labels, status }) {
-  
   const [searchValue, setSearchValue] = useState("");
   const issuesQuery = useQuery(
     ["issues", { labels, status }],
@@ -15,7 +14,7 @@ export default function IssuesList({ labels, status }) {
       );
     },
     {
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60,
     }
   );
   const searchQuery = useQuery(

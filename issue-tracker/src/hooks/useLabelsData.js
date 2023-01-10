@@ -5,7 +5,7 @@ export default function useLabelsData() {
     ["labels"],
     () => fetch("/api/labels").then((res) => res.json()),
     {
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 60,
     }
   );
 
